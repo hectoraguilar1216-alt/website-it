@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>MasterMaterials | High Quality. Your need, Our standards.</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* === COMPLETELY NEW EMBER THEME ===
+           PRIMARY BG: #2C3E50 (Slate Grey)
+           CARD BG:    #1A252F (Slate Dark)
+           ACCENT:     #F39C12 (Ember Orange)
+           TEXT:       #FFFFFF (Pure White)
+           TEXT SOFT:  #BDC3C7 (Silver)
+        */
+
+        :root {
+            --brand-ember: #f39c12;
+            --brand-slate: #2c3e50;
+            --brand-slate-dark: #1a252f;
+            --text-primary: #ffffff;
+            --text-secondary: #bdc3c7;
+            --shadow: 0 4px 15px rgba(0,0,0,0.5);
+            --header-height: 80px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--brand-slate); /* Primary page background is Slate Grey */
+            overflow-x: hidden; /* Prevent horizontal scroll on mobile */
+        }
+
+        /* === FLOATING MASCOT VIDEO (Brand Ambassador) === */
+        .mascot-container {
+            position: fixed;
+            top: 100px;
+            right: 30px;
+            width: 130px;
+            height: 130px;
+            z-index: 2000;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--brand-ember);
+            box-shadow: 0 8px 25px rgba(243, 156, 18, 0.4);
+            background: var(--brand-slate-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translateZ(0); /* Enable smooth animation */
+            transition: all 0.3s ease;
+            animation: floatMascot 4s ease-in-out infinite;
+        }
+
+        @keyframes floatMascot {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .mascot-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        /* === STICKY NAVIGATION BAR (Updated Layout) === */
+        nav {
+            background: rgba(44, 62, 80, 0.98); /* Transparent effect on Slate */
+            color: var(--text-primary);
+            padding: 0 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: var(--header-height);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        nav .logo {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: var(--brand-ember);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            position: relative;
+        }
+
+        nav .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50%;
+            height: 3px;
+            background-color: var(--brand-ember);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--brand-ember);
+            transition: width 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--brand-ember);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* === GLOBAL SECTION ENHANCEMENT === */
+        section {
+            padding: 100px 10%;
+            border-bottom: 1px solid rgba(255,255,255,0.05); /* Subtle division on dark background */
+            position: relative;
+        }
+
+        h2 {
+            color: var(--brand-ember);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            height: 80%;
+            width: 8px;
+            background-color: var(--brand-ember);
+            border-radius: 4px;
+        }
+
+        /* === HERO SECTION (New Layout & Slideshow) === */
+        .hero {
+            color: var(--text-primary);
+            text-align: left;
+            height: 85vh; /* Taller hero */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: var(--brand-slate-dark);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            animation: backgroundslideshow 18s infinite;
+            overflow: hidden;
+            margin-bottom: -100px; /* Overlap effect to integrate hero with content below */
+            z-index: 1;
+        }
+
+        /* Smooth connection mask integrating the hero with content below */
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(to top, var(--brand-slate) 20%, rgba(44, 62, 80, 0) 100%);
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4.2rem;
+            font-weight: 700;
+            margin: 0;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            max-width: 750px;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            color: var(--brand-ember);
+            margin: 15px 0;
+            max-width: 600px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            font-weight: 500;
+        }
+
+        @keyframes backgroundslideshow {
+            0%, 25% { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3OjoIys/RD84QzQ5OjcBCgoKDQUFDgUFDjc6Ni43Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Nv/AABEIALoBBgMBIgACEQEDEQH/xAAbAAEBAAMBAQEAAAAAAAAAAAAABAMFBgIHAf/EAEIQAAEDBAEDAgMEBAgDBwUAAAECAwQAFQYREiExE0EiUWFxFDKRFSNCUoEWM2JyobHB4fAXNENTRFOi0uLxgpKy4f/EABgBAQEBAQEAAAAAAAAAAAAAAAABAgME/8QAIREBAAIBBAMBAQEAAAAAAAAAAAERAhIhMVFhQSJxgf/a556'); }
+            30%, 55% { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQUFDgUFDjc6Ni43Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Nv/AABEIALoBBgMBIgACEQEDEQH/xAAbAAEBAAMBAQEAAAAAAAAAAAAABAMFBgIHAf/EAEIQAAEDBAEDAgMEBAgDBwUAAAECAwQAFQYREiExE0EiUWFxFDKRFSNCUoEWM2JyobHB4fAXNENTRFOi0uLxgpKy4f/EABgBAQEBAQEAAAAAAAAAAAAAAAABAgME/8QAIREBAAIBBAMBAQEAAAAAAAAAAAERAhIhMVFhQSJxgf/a488'); }
+            60%, 85% { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQUFDgUFDjc6Ni43Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Nv/AABEIALoBBgMBIgACEQEDEQH/xAAbAAEBAAMBAQEAAAAAAAAAAAAABAMFBgIHAf/EAEIQAAEDBAEDAgMEBAgDBwUAAAECAwQAFQYREiExE0EiUWFxFDKRFSNCUoEWM2JyobHB4fAXNENTRFOi0uLxgpKy4f/EABgBAQEBAQEAAAAAAAAAAAAAAAABAgME/8QAIREBAAIBBAMBAQEAAAAAAAAAAAERAhIhMVFhQSJxgf/a5118'); }
+            90%, 100% { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQUFDgUFDjc6Ni43Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Nv/AABEIALoBBgMBIgACEQEDEQH/xAAbAAEBAAMBAQEAAAAAAAAAAAAABAMFBgIHAf/EAEIQAAEDBAEDAgMEBAgDBwUAAAECAwQAFQYREiExE0EiUWFxFDKRFSNCUoEWM2JyobHB4fAXNENTRFOi0uLxgpKy4f/EABgBAQEBAQEAAAAAAAAAAAAAAAABAgME/8QAIREBAAIBBAMBAQEAAAAAAAAAAAERAhIhMVFhQSJxgf/a488'); }
+        }
+
+        /* === SERVICES GRID (Updated 2-Column Design) === */
+        #Services {
+            background-color: var(--brand-slate); /* Slate background */
+            position: relative;
+            z-index: 5;
+            padding-top: 130px; /* Offset hero mask overlap */
+        }
+
+        .services-grid {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            flex: 1;
+            background: var(--brand-slate-dark); /* Contrast card background */
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.03);
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            color: var(--brand-ember);
+            margin-bottom: 20px;
+        }
+
+        .service-card p {
+            font-size: 1rem;
+            color: var(--text-secondary); /* Silver text for longer content on dark cards */
+            text-align: justify;
+            margin-bottom: 30px;
+            color: #bdc3c7; /* SOFT GREY text for long paragraphs */
+        }
+
+        /* PRIMARY BUTTON ENHANCEMENT */
+        .btn-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--brand-ember) 0%, #d68910 100%);
+            color: var(--brand-slate-dark);
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(243, 156, 18, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(243, 156, 18, 0.5);
+            background: linear-gradient(135deg, #d68910 0%, var(--brand-ember) 100%);
+        }
+
+        /* === MINI-GAME ENHANCEMENT (Organized & Dark) === */
+        #mini-game-container {
+            background-color: var(--brand-slate-dark);
+            text-align: center;
+            border-radius: 20px;
+            padding: 80px 10%;
+            margin: 50px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        #gameCanvas {
+            border: 5px solid var(--brand-ember);
+            background: #111; /* Darker background for game */
+            border-radius: 15px;
+            margin: 20px auto;
+            max-width: 100%;
+            box-shadow: 0 5px 20px rgba(243, 156, 18, 0.3);
+            display: block;
+        }
+
+        #mini-game-container p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 10px auto;
+        }
+
+        #restartBtn {
+            padding: 12px 25px;
+            background-color: var(--brand-ember);
+            border: none;
+            border-radius: 30px;
+            color: var(--brand-slate-dark);
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            display: none; /* Only show via logic in stacker.js */
+            margin-top: 15px;
+        }
+
+        /* === CONTACT INFO ENHANCEMENT (New Organization) === */
+        .contact-info {
+            background: var(--brand-slate-dark);
+            padding: 50px;
+            border-radius: 20px;
+            margin-top: 30px;
+            box-shadow: var(--shadow);
+            border-left: 10px solid var(--brand-ember);
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-info strong {
+            color: var(--brand-ember);
+            width: 180px;
+            margin-right: 15px;
+        }
+
+        .contact-info p span.icon {
+            font-size: 1.4rem;
+            margin-right: 15px;
+            color: var(--brand-ember);
+        }
+
+        /* === LOCATION ENHANCEMENT (Organized & Dark) === */
+        #location {
+            background-color: var(--brand-slate);
+        }
+
+        .location-map {
+            margin-top: 30px;
+        }
+
+        .location-map iframe {
+            width: 100%;
+            height: 500px;
+            border: 0;
+            border-radius: 15px;
+            margin-top: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        /* === FOOTER ENHANCEMENT (Slate Dark) === */
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: var(--brand-slate-dark);
+            font-size: 1rem;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 900px) {
+            .services-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            .service-card {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+            .mascot-container {
+                width: 100px;
+                height: 100px;
+                top: 90px;
+                right: 10px;
+            }
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="mascot-container">
+        <video autoplay muted loop playsinline class="mascot-video" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <source src="mascot ict.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="mascot-placeholder" style="display:none; color:white; text-align:center; font-size:0.8rem;">[Mascot Video]</div>
+    </div>
+    
+    <nav>
+        <div class="logo">MASTERMATERIALS</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#Services">Services</a></li>
+            <li><a href="about us.html">About Us</a></li>
+            <li><a href="Report.html">Report</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#location">Location</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <h1>Providing Quality Services</h1>
+        <p>Reliable. High Quality. Your need, Our standards.</p>
+    </section>
+
+    <section id="Services">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <img src="A2.jpg" alt="Heavy equipment on site">
+                <h3>Heavy Equipment</h3>
+                <p>At MasterMaterials, we provide the heavy-duty power you need to move your project forward. Our fleet of late-model loaders and transport vehicles is meticulously maintained to ensure zero downtime on your job site. From massive earthmoving tasks to precision materials handling, we deliver the reliability that professionals demand.</p>
+                <a href="Equipments.html" class="btn-primary">View Equipment for sale</a>
+            </div>
+
+            <div class="service-card">
+                <img src="agg.jpg" alt="Pile of construction aggregatess">
+                <h3>Aggregates</h3> 
+                <p>At MasterMaterials, we understand that the quality of your project starts from the ground up. Our aggregates are sourced and processed to ensure superior consistency and strength. We guarantee timely delivery of the raw materials you need to keep your project moving on time and on budget.</p>
+                <a href="Aggregates.html" class="btn-primary">View Aggregates for sale</a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="mini-game-container">
+        <h2>Material Tower Stacker</h2>
+        <p>Blocks Stacked: <span id="score" style="color:var(--brand-ember); font-size:1.5rem; font-weight:bold;">0</span></p>
+        
+        <canvas id="gameCanvas" width="400" height="400"></canvas>
+        
+        <p>Click anywhere on the canvas to drop the material block.</p>
+        <button id="restartBtn">Play Again</button>
+    </section>
+
+    <script src="stacker.js"></script>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-info">
+            <p><span class="icon">✉</span> <strong>Email:</strong> MasterMaterials@gmail.com</p>
+            <p><span class="icon">📞</span> <strong>Phone:</strong> +501-234-234-090</p>
+            <p><span class="icon">🕒</span> <strong>Store Hours:</strong> Mon - Fri, 8:00 AM - 5:00 PM</p>
+        </div>
+    </section>
+
+    <section id="location">
+        <h2>Location</h2>
+        <div class="location-map">
+            <p style="font-size:1.1rem; color:var(--brand-slate);"><strong style="color:var(--brand-ember);">Main Site Office:</strong></p>
+            <p>Libertad Village, Corozal District<br> Belize C.A.</p>
+            <iframe src="http://googleusercontent.com/maps.google.com/0!1m18!1m12!1m3!1d3810.01526!2d-88.4716772!3d18.3582121!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f5db9121894a457%3A0x64757b11d3311893!2sLibertad%2C%20Belize!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <footer>
+        <p>© Copyright 2026 MASTERMATERIALS. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

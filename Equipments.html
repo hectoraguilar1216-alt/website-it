@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Machines - Master Materials | Reliability built on performance.</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* === NEW GLOBAL BLUE/GREY THEME (Mobile-First) ===
+           PRIMARY BG: #2C3E50 (Slate Blue)
+           CARD BG:    #1A252F (Dark Slate Grey)
+           ACCENT:     #F39C12 (Orange)
+           TEXT:       #FFFFFF (Pure White)
+           TEXT SOFT:  #BDC3C7 (Silver Grey)
+           === */
+
+        :root {
+            --brand-orange: #f39c12;
+            --brand-slate: #2c3e50;
+            --brand-slate-dark: #1a252f;
+            --text-primary: #ffffff;
+            --text-secondary: #bdc3c7;
+            --card-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            --header-height: 80px; /* Standard nav height */
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--brand-slate); /* Primary background is Slate Blue */
+            overflow-x: hidden; /* Prevent horizontal scroll on mobile */
+        }
+
+        /* === STICKY NAVIGATION BAR (Organized & Dark) === */
+        nav {
+            background: rgba(44, 62, 80, 0.98); /* Transparent effect on Slate Blue */
+            color: var(--text-primary);
+            padding: 0 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: var(--header-height);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        nav .logo {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: var(--brand-orange);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            position: relative;
+        }
+
+        nav .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50%;
+            height: 3px;
+            background-color: var(--brand-orange);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--brand-orange);
+            transition: width 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--brand-orange);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* === HEADER / HERO SECTION (New Organized Layout) === */
+        header {
+            color: white;
+            text-align: left;
+            height: 50vh; /* Shorter header on desktop */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: var(--brand-slate-dark);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            animation: backgroundslideshow 18s infinite;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        /* Connecting mask effect from hero into products section */
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, var(--brand-slate) 20%, rgba(44, 62, 80, 0) 100%);
+            z-index: 2;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin: 0;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            max-width: 600px;
+            padding-left: 8%;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: var(--brand-orange);
+            margin: 15px 0 0 0;
+            max-width: 500px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            padding-left: 8%;
+            font-weight: 500;
+        }
+
+        @keyframes backgroundslideshow {
+            0%, 25% { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3OjoIys/RD84QzQ5OjcBCgoKDQUFDgUFDjc6Ni43Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Nv/AABEIALoBBgMBIgACEQEDEQH/xAAbAAEBAAMBAQEAAAAAAAAAAAAABAMFBgIHAf/EAEIQAAEDBAEDAgMEBAgDBwUAAAECAwQAFQYREiExE0EiUWFxFDKRFSNCUoEWM2JyobHB4fAXNENTRFOi0uLxgpKy4f/EABgBAQEBAQEAAAAAAAAAAAAAAAABAgME/8QAIREBAAIBBAMBAQEAAAAAAAAAAAERAhIhMVFhQSJxgf/a556'); }
+            30%, 55% { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQUFDgUFDjc6Ni43Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Nv/AABEIALoBBgMBIgACEQEDEQH/xAAbAAEBAAMBAQEAAAAAAAAAAAAABAMFBgIHAf/EAEIQAAEDBAEDAgMEBAgDBwUAAAECAwQAFQYREiExE0EiUWFxFDKRFSNCUoEWM2JyobHB4fAXNENTRFOi0uLxgpKy4f/EABgBAQEBAQEAAAAAAAAAAAAAAAABAgME/8QAIREBAAIBBAMBAQEAAAAAAAAAAAERAhIhMVFhQSJxgf/a598'); }
+            60%, 85% { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3OjoIys/RD84QzQ5OjcBCgoKDQUFDgUFDjc6Ni43Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Nv/AABEIALoBBgMBIgACEQEDEQH/xAAbAAEBAAMBAQEAAAAAAAAAAAAABAMFBgIHAf/EAEIQAAEDBAEDAgMEBAgDBwUAAAECAwQAFQYREiExE0EiUWFxFDKRFSNCUoEWM2JyobHB4fAXNENTRFOi0uLxgpKy4f/EABgBAQEBAQEAAAAAAAAAAAAAAAABAgME/8QAIREBAAIBBAMBAQEAAAAAAAAAAAERAhIhMVFhQSJxgf/a499'); }
+            90%, 100% { background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3OjoIys/RD84QzQ5OjcBCgoKDQUFDgUFDjc6Ni43Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Njc3Nv/AABEIALoBBgMBIgACEQEDEQH/xAAbAAEBAAMBAQEAAAAAAAAAAAAABAMFBgIHAf/EAEIQAAEDBAEDAgMEBAgDBwUAAAECAwQAFQYREiExE0EiUWFxFDKRFSNCUoEWM2JyobHB4fAXNENTRFOi0uLxgpKy4f/EABgBAQEBAQEAAAAAAAAAAAAAAAABAgME/8QAIREBAAIBBAMBAQEAAAAAAAAAAAERAhIhMVFhQSJxgf/a556'); }
+        }
+
+        /* === MAIN CONTAINER (Dark Context) === */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 50px 5% 100px 5%; /* Mobile-first padding */
+            z-index: 5;
+            position: relative;
+        }
+
+        /* === PRODUCT CARDS (New Organized Side-by-Side Design) === */
+        .product-card {
+            background: var(--brand-slate-dark); /* Contrast dark context */
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.03);
+            box-shadow: var(--card-shadow);
+            margin-bottom: 40px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+        }
+
+        /* Card Content Organization */
+        .card-content {
+            display: flex;
+            flex-direction: column; /* Mobile: Stack vertically */
+            width: 100%;
+        }
+
+        /* --- PRODUCT INFO BLOCK --- */
+        .product-info {
+            flex: 2;
+            padding: 30px;
+            display: flex;
+            flex-direction: column; /* Mobile: Stack vertically */
+            align-items: center;
+            border-bottom: 2px solid rgba(255,255,255,0.05); /* Separator on mobile */
+        }
+
+        /* PICTURE TAG filename PRESERVED */
+        .product-info img {
+            width: 200px; /* Standardized size for machines */
+            height: 150px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 20px; /* Mobile spacing */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            border: 2px solid rgba(255,255,255,0.05);
+        }
+
+        .details {
+            text-align: center;
+            flex: 1;
+        }
+
+        .details h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.8rem;
+            color: var(--brand-orange); /* Highlight titles */
+            font-weight: 700;
+        }
+
+        .details p {
+            margin: 0;
+            font-size: 1.1rem;
+            color: var(--text-secondary); /* Soft white/grey */
+            font-weight: 600;
+        }
+
+        /* --- CALCULATOR BLOCK ENHANCEMENT --- */
+        .calculator-box {
+            flex: 1;
+            background: rgba(255,255,255,0.02); /* Very subtle overlay */
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .calculator-box h4 {
+            margin: 0 0 15px 0;
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .calculator-box input {
+            width: 100px;
+            padding: 12px;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            border: 2px solid rgba(255,255,255,0.1);
+            background-color: rgba(0,0,0,0.2);
+            color: white;
+            text-align: center;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        .calculator-box input:focus {
+            outline: none;
+            border-color: var(--brand-orange);
+            box-shadow: 0 0 10px rgba(243, 156, 18, 0.4);
+        }
+
+        .total-display {
+            font-size: 1.5rem;
+            color: var(--brand-orange);
+            font-weight: bold;
+            margin: 15px 0;
+            border-bottom: 2px solid var(--brand-orange);
+            padding-bottom: 5px;
+        }
+
+        /* CTA BUTTON ENHANCEMENT */
+        .add-to-cart-btn {
+            background-color: var(--brand-orange);
+            color: var(--brand-slate-dark);
+            border: none;
+            padding: 15px;
+            width: 100%;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            box-shadow: 0 4px 10px rgba(243, 156, 18, 0.4);
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #e68a00;
+            transform: scale(1.03);
+            box-shadow: 0 6px 15px rgba(243, 156, 18, 0.5);
+        }
+
+        /* === FOOTER ENHANCEMENT (Slate Dark) === */
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: var(--brand-slate-dark);
+            color: var(--text-primary);
+            font-size: 1rem;
+            margin-top: 0; /* Keep consistent with container padding-bottom */
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        footer p {
+            margin: 0;
+            letter-spacing: 1px;
+        }
+
+        /* social links integrated for professionalism */
+        .social-links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: var(--brand-orange);
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.2);
+        }
+
+        /* =========================================
+           Media Queries for Responsiveness ( fit perfectamente on phones)
+           ========================================= */
+
+        /* Standard Mobile (Below 900px) - CRITICAL for Mobile Fit */
+        @media (max-width: 900px) {
+            /* Standard side-by-side header becomes vertical */
+            header {
+                height: 60vh;
+                text-align: center;
+            }
+            header h1 {
+                font-size: 2.8rem;
+                padding-left: 5%;
+                max-width: 90%;
+            }
+            header p {
+                font-size: 1.1rem;
+                padding-left: 5%;
+                max-width: 90%;
+            }
+
+            /* Nav - standard responsive design: stack links */
+            nav {
+                height: auto;
+                flex-direction: column;
+                padding: 20px 5%;
+            }
+
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 5px 10px;
+            }
+
+            /* Main section padding reduced for screens */
+            .container {
+                padding: 40px 5% 60px 5%;
+            }
+
+            /* Cards stack logically and fit section perfectly */
+            .product-card {
+                border-radius: 15px;
+            }
+            .card-content {
+                flex-direction: column; /* Explicitly ensure stacked vertically on mobile */
+            }
+            .calculator-box {
+                border-left: none; /* Removed desktop separator */
+            }
+            footer { padding: 20px; font-size: 0.9rem; }
+        }
+
+        /* Tablets Landscape and Above (Above 900px) */
+        @media (min-width: 901px) {
+            header { height: 50vh; }
+            .card-content {
+                flex-direction: row; /* Desktop standard side-by-side */
+            }
+            .product-info {
+                flex-direction: row; /* side-by-side info */
+                border-bottom: none; /* No separator here on desktop */
+                text-align: left;
+                justify-content: center;
+            }
+            .product-info img {
+                margin-bottom: 0;
+                margin-right: 30px;
+            }
+            .details { text-align: left; flex: 1; }
+            .calculator-box {
+                border-left: 2px solid rgba(255,255,255,0.05); /* Restore desktop separator */
+                max-width: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">MASTER MATERIALS</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#Services">Services</a></li>
+            <li><a href="about us.html">About Us</a></li>
+            <li><a href="Report.html">Report</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="index.html#location">Location</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Machines</h1>
+        <p>Best performing and Reliable machines</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="product-card">
+            <div class="card-content">
+                <div class="product-info">
+                    <img src="Excavators.jpg" alt="Excavator">
+                    <div class="details">
+                        <h3>Excavator</h3>
+                        <p>Heavy duty digging and clearing.</p>
+                        <p><strong>$150.00</strong> per hour</p>
+                    </div>
+                </div>
+                <div class="calculator-box">
+                    <h4>Rent Calculator</h4>
+                    <label>Hours:</label>
+                    <input type="number" id="exQty" value="0" min="0" oninput="calc()">
+                    <div class="total-display">Total: <span id="exTotal">$0.00</span></div>
+                    <button class="add-to-cart-btn" onclick="cart('Excavator', 'exQty', 150)">Rent Now</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="card-content">
+                <div class="product-info">
+                    <img src="dump-trucks.jpg" alt="Dump Truck">
+                    <div class="details">
+                        <h3>Dump Truck</h3>
+                        <p>Material transport and site clearing.</p>
+                        <p><strong>$100.00</strong> per trip</p>
+                    </div>
+                </div>
+                <div class="calculator-box">
+                    <h4>Rent Calculator</h4>
+                    <label>Trips:</label>
+                    <input type="number" id="dtQty" value="0" min="0" oninput="calc()">
+                    <div class="total-display">Total: <span id="dtTotal">$0.00</span></div>
+                    <button class="add-to-cart-btn" onclick="cart('Dump Truck', 'dtQty', 100)">Rent Now</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="card-content">
+                <div class="product-info">
+                    <img src="bulldozer.jpg" alt="Bulldozer">
+                    <div class="details">
+                        <h3>Bulldozer</h3>
+                        <p>Powerful leveling and earthmoving.</p>
+                        <p><strong>$180.00</strong> per hour</p>
+                    </div>
+                </div>
+                <div class="calculator-box">
+                    <h4>Rent Calculator</h4>
+                    <label>Hours:</label>
+                    <input type="number" id="bzQty" value="0" min="0" oninput="calc()">
+                    <div class="total-display">Total: <span id="bzTotal">$0.00</span></div>
+                    <button class="add-to-cart-btn" onclick="cart('Bulldozer', 'bzQty', 180)">Rent Now</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="card-content">
+                <div class="product-info">
+                    <img src="crane.jpg" alt="Crane">
+                    <div class="details">
+                        <h3>Crane</h3>
+                        <p>High-altitude lifting and placement.</p>
+                        <p><strong>$250.00</strong> per hour</p>
+                    </div>
+                </div>
+                <div class="calculator-box">
+                    <h4>Rent Calculator</h4>
+                    <label>Hours:</label>
+                    <input type="number" id="crQty" value="0" min="0" oninput="calc()">
+                    <div class="total-display">Total: <span id="crTotal">$0.00</span></div>
+                    <button class="add-to-cart-btn" onclick="cart('Crane', 'crQty', 250)">Rent Now</button>
+                </div>
+            </div>
+        </div>
+    </div> <footer>
+        <p>© Copyright 2026 MASTERMATERIALS. All Rights Reserved.</p>
+        <div class="social-links">
+            <a href="https://facebook.com" title="Facebook">f</a>
+            <a href="https://instagram.com" title="Instagram">i</a>
+            <a href="https://twitter.com" title="Twitter">t</a>
+        </div>
+    </footer>
+
+    <script>
+        function calc() {
+            // Logic for excavator
+            let ex = document.getElementById('exQty').value;
+            document.getElementById('exTotal').innerText = "$" + (ex * 150).toFixed(2);
+            
+            // Logic for dump truck
+            let dt = document.getElementById('dtQty').value;
+            document.getElementById('dtTotal').innerText = "$" + (dt * 100).toFixed(2);
+
+            // Logic for bulldozer
+            let bz = document.getElementById('bzQty').value;
+            document.getElementById('bzTotal').innerText = "$" + (bz * 180).toFixed(2);
+
+            // Logic for crane
+            let cr = document.getElementById('crQty').value;
+            document.getElementById('crTotal').innerText = "$" + (cr * 250).toFixed(2);
+        }
+
+        function cart(name, id, price) {
+            let q = document.getElementById(id).value;
+            if(q > 0) {
+                // Preserved original success message
+                alert("Success! " + name + " booked for " + q + " units. Total: $" + (q * price).toFixed(2));
+            } else {
+                // Preserved original error message
+                alert("Please enter a number of hours/trips.");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+# Query: 
+# ContextLines: 1
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Construction Services</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: rgba(63, 60, 59, 0.952);
+      color: #333;
+    }
+    header {
+      background: url('construction-hero.jpg') no-repeat center center/cover;
+      color: lightsalmon;
+      text-align: center;
+      padding: 80px 20px;
+    }
+    header h1 {
+      font-size: 3em;
+      margin: 0;
+    }
+    header p {
+      font-size: 1.2em;
+    }
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+    .service-card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin: 20px;
+      width: 300px;
+      overflow: hidden;
+      text-align: center;
+    }
+    .service-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .service-card h2 {
+      margin: 15px 0 10px;
+      font-size: 1.5em;
+      color: #22993b;
+    }
+    .service-card p {
+      padding: 0 15px 20px;
+      font-size: 1em;
+      line-height: 1.5;
+    }
+    footer {
+      background: #22993b;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Building Your Vision</h1>
+    <p>Professional construction services for residential, commercial, and industrial projects</p>
+  </header>
+
+  <section class="services">
+    <div class="service-card">
+      <img src="Excavators.jpg" alt="machines">
+      <h2>Excavator</h2>
+      <p>The excavator is rented par hour a cost of 350 an hour. we will be fast,precise and careful with our work.  .</p>
+    </div>
+
+    <div class="service-card">
+      <img src="dump-trucks.jpg" alt="machines">
+      <h2>Dump truck</h2>
+      <p>The dump truck is rented for 200 an hour. Carries over 1000 pounds if you want to care or throw something call us. .</p>
+    </div>
+
+    <div class="service-card">
+      <img src="Bulldozer.jpg" alt="machines">
+      <h2>Bulldozer</h2>
+      <p>The bulldozer rented at 300 an hour. flating landscapes, move soil and gravel.
+    </div>
+
+    <div class="service-card">
+      <img src="crane.jpg" alt="machines">
+      <h2>crane</h2>
+      <p>crane renting at 400 an hour. pick up heavy to put in very high places.</p>
+    </div>
+
+    <div class="service-card">
+      <img src="backhoe-loaders.jpg" alt="machines">
+      <h2>Backhoe-loader</h2>
+      <p>backhoe-loader renting at for 450 an hour.A backhoe loader is a versatile piece of heavy equipment that combines a front loader and a rear backhoe, making it ideal for various construction and excavation tasks.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>📞 Contact us today for a free consultation | ✉️ info@yourcompany.com</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>About Us - Master Materials | Our Commitment to Excellence</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* === REVISED GLOBAL BLUE/GREY THEME (Mobile-First, No White BGs) ===
+           PRIMARY BG: #2C3E50 (Slate Blue)
+           BOX BG:     #1A252F (Steel Grey Dark)
+           ACCENT:    #F39C12 (Orange)
+           TEXT:      #FFFFFF (Pure White)
+           TEXT SOFT: #BDC3C7 (Silver Grey)
+           === */
+
+        :root {
+            --brand-orange: #f39c12;
+            --brand-slate: #2c3e50;
+            --brand-slate-dark: #1a252f;
+            --text-primary: #ffffff;
+            --text-secondary: #bdc3c7;
+            --card-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            --header-height: 80px; /* Standard nav height */
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            line-height: 1.8;
+            color: var(--text-primary);
+            background-color: var(--brand-slate); /* Primary background is Slate Blue */
+            overflow-x: hidden; /* Prevent horizontal scroll on mobile */
+            padding-bottom: 100px; /* Reduced padding from standard page to avoid large scrolls */
+        }
+
+        /* === STICKY NAVIGATION BAR (Organized & Dark) === */
+        nav {
+            background: rgba(44, 62, 80, 0.98); /* Transparent effect on Slate Blue */
+            color: var(--text-primary);
+            padding: 0 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: var(--header-height);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        nav .logo {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: var(--brand-orange);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            position: relative;
+        }
+
+        nav .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50%;
+            height: 3px;
+            background-color: var(--brand-orange);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--brand-orange);
+            transition: width 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--brand-orange);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* === CONTENT BOX ENHANCEMENT (Organized & Dark) === */
+        .content-box {
+            background-color: var(--brand-slate-dark); /* Contrast dark context */
+            max-width: 800px;
+            margin: 80px auto; /* Mobile-first vertical margins */
+            padding: 40px; /* Standard internal padding */
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.03);
+            box-shadow: var(--card-shadow);
+            text-align: left;
+            position: relative;
+            z-index: 5;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Decorative ember accent at the top of the box */
+        .content-box::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 20px;
+            width: 60px;
+            height: 6px;
+            background: linear-gradient(90deg, var(--brand-orange), rgba(243, 156, 18, 0.5));
+            border-radius: 0 0 10px 10px;
+        }
+
+        .content-box h1 {
+            color: var(--brand-orange); /* Highlighted titles */
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0 0 30px 0;
+            border-bottom: 2px solid rgba(255,255,255,0.05); /* Subtle division */
+            padding-bottom: 15px;
+        }
+
+        .content-box p {
+            margin: 0 0 20px 0;
+            font-size: 1.15rem;
+            color: var(--text-secondary); /* Softer white/grey for long content */
+            line-height: 1.8;
+        }
+
+        .content-box strong {
+            color: var(--text-primary); /* Bolded text is pure white for focus */
+            font-weight: 600;
+        }
+
+        /* CTA Link Integration (assuming About implies Contact) */
+        .cta-link {
+            display: inline-block;
+            background-color: var(--brand-orange);
+            color: var(--brand-slate-dark);
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1rem;
+            text-transform: uppercase;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(243, 156, 18, 0.4);
+        }
+
+        .cta-link:hover {
+            background-color: #e68a00;
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(243, 156, 18, 0.5);
+        }
+
+        /* === FOOTER ENHANCEMENT (Slate Dark) === */
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: var(--brand-slate-dark);
+            color: var(--text-primary);
+            font-size: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            position: relative; /* Fixed footer logic optimized for responsiveness */
+        }
+
+        footer p {
+            margin: 0;
+            letter-spacing: 1px;
+        }
+
+        /*social links integrated for professionalism*/
+        .social-links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: var(--brand-orange);
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.2);
+        }
+
+        /* =========================================
+           Media Queries for Responsiveness ( fit perfectamente on phones)
+           ========================================= */
+
+        /* Standard Mobile (Below 900px) - CRITICAL for Mobile Fit */
+        @media (max-width: 900px) {
+            /* Main section padding reduced for screens */
+            body { padding-bottom: 60px; } /* Reduce scroll for mobile footer */
+
+            /* Nav - standard stacked design for compliance */
+            nav {
+                height: auto;
+                flex-direction: column;
+                padding: 20px 5%;
+            }
+
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 5px 10px;
+            }
+
+            /* Content box adapts to section perfectamente */
+            .content-box {
+                margin: 40px 5%; /* Use margins instead of set width */
+                padding: 30px 20px; /* Reduced internal padding */
+                border-radius: 15px;
+            }
+
+            .content-box h1 {
+                font-size: 2rem;
+                margin-bottom: 20px;
+            }
+
+            .content-box p {
+                font-size: 1.05rem;
+                margin-bottom: 15px;
+            }
+            .content-box::after {
+                width: 40px;
+                left: 15px;
+            }
+            .cta-link { width: 100%; text-align: center; box-sizing: border-box;}
+
+            footer { padding: 20px; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">MASTER MATERIALS</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Aggregates.html">Aggregates</a></li>
+            <li><a href="Equipments.html">Equipments</a></li>
+            <li><a href="about us.html">About Us</a></li>
+            <li><a href="Report.html">Report</a></li>
+        </ul>
+    </nav>
+
+    <section class="container">
+        <div class="content-box">
+            <h1>About Master Construction</h1>
+            
+            <p>
+                Established on <strong>January 1st, 2026</strong>, Master Construction was founded with a clear vision: to set a new benchmark for reliability and excellence in the construction industry. We understand that every project represents a significant commitment to your future.
+            </p>
+
+            <p>
+                Our team of skilled professionals combines modern technology with sustainable practices to bring your vision to life. Whether it's constructing dream homes or managing large-scale developments, Master Construction ensures precision, safety, and reliability at every step.
+            </p>
+
+            <p>
+                We believe that construction is not just about bricks and mortar—it's about creating spaces where people live, work, and thrive. We are committed to delivering projects that stand the test of time and exceed expectations.
+            </p>
+
+            <a href="index.html#contact" class="cta-link">Partner with Us</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© Copyright 2026 MASTERMATERIALS. All Rights Reserved.</p>
+        <div class="social-links">
+            <a href="https://facebook.com" title="Facebook">f</a>
+            <a href="https://instagram.com" title="Instagram">i</a>
+            <a href="https://twitter.com" title="Twitter">t</a>
+        </div>
+    </footer>
+
+</body>
+</html>
